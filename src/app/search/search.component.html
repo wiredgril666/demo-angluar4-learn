@@ -1,0 +1,26 @@
+<form [formGroup]="formModel" (ngSubmit)="onSearch()" class="searchForm" role="form">
+<div class="row">
+  <div class="col-sm-12">
+  <div class=" col-md-5 col-sm-5 col-lg-5" >
+    <div class="form-group">
+      <label for="actor"  class="col-sm-2">电影：</label>
+      <!--用 formControlName 指令把后台 q属性绑一块 -->
+      <div class="col-md-9 col-sm-9 col-lg-9">
+        <input  class=" form-control"  formControlName="q" type="text" id="actor" placeholder="电影，导演，演员..." />
+      </div>
+
+    </div>
+  </div>
+
+  <div class=" col-md-5 col-sm-5 col-lg-5">
+    <label for="tag"  class="col-sm-2">标签：</label>
+    <div class="col-md-9 col-sm-9 col-lg-9">
+      <input formControlName="tag"  class=" form-control" type="text" id="tag" placeholder="电影类别" />
+    </div>
+  </div>
+  <div class=" col-md-1 col-sm-1 col-lg-1">
+    <button type="submit" class="btn btn-primary btn-block">搜索</button>
+  </div>
+</div>
+</div>
+</form>

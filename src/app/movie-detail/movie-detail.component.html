@@ -1,0 +1,55 @@
+<div class="thumbnail">
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <div class="col-sm-3 col-md-3 col-lg-3" >
+          <img [src]="movie?.images.large" class="cover" />
+        </div>
+        <div class="col-md-9 col-sm-9 col-lg-9">
+          <div class="actorlist">演员列表：</div>
+          <div class="col-md-3 col-sm-3 col-lg-3"  *ngFor= "let cast of movie?.casts ">
+            <img [src]="cast.avatars.medium"  class="img-avater" alt="加载失败"/>
+            <p class="castname">{{cast.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <h4 class="pull-right"></h4>
+    <p class="year-tit">{{movie?.title}}        <span class="year">{{movie?.year}}</span> </p>
+    <h4>{{movie?.summary}}</h4>
+  </div>
+  <div>
+    <p class="pull-right">评分次数：{{movie?.ratings_count}}</p>
+    <p>
+      <app-stars [rating]="movie?.rating.stars/10"></app-stars>
+    </p>
+  </div>
+</div>
+
+<div class="well">
+  <div>
+    <button class="btn btn-success" (click) = 'isCommentHidden = !isCommentHidden'>写评论</button>
+  </div>
+  <div [hidden] = "isCommentHidden">
+    <div><app-stars [readonly] = 'false' [(rating)] = 'newRating' ></app-stars></div>
+    <div><textarea [(ngModel)] = 'newComment'></textarea></div>
+    <div>
+      <button class="btn" (click)='addComment()'>提交</button>
+    </div>
+  </div>
+  <div class="row" *ngFor="let comment of comments">
+    <hr>
+    <div class="col-md-12">
+      <app-stars [rating]="comment.rating"></app-stars>
+      <span>{{comment.user}}</span>
+      <span class="pull-right">{{comment.timestamp|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+      <p></p>
+      <p>{{comment.content}}</p>
+    </div>
+  </div>
+</div>

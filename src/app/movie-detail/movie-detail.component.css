@@ -1,0 +1,33 @@
+.actorlist{
+  margin-top: 60px;
+  font-size: 24px;
+  color: saddlebrown;
+  font-weight: bold;
+}
+.img-avater{
+  width:100px;
+  height: 150px;
+  border:1px solid #e1e1e1;
+  margin:0 auto;
+  margin-top: 20px;
+}
+.cover{
+  width:200px;
+  height:300px;
+}
+.castname{
+  margin-top:20px;
+}
+.year-tit{
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: "Microsoft Himalaya";
+  font-weight: bold;
+}
+.year{
+  color:red;
+  margin-left:20px;
+  font-size: 28px;
+  font-weight: 400;
+  font-family: "Microsoft YaHei UI";
+}

@@ -1,0 +1,26 @@
+
+<div class="col-md-4 col-sm-4 col-lg-4 movie" *ngFor= "let movie of movies | async ">
+    <div class="thumbnail">
+        <img [src]="movie.images.medium" class="imgcover"/>
+        <div class="caption">
+            <h4 class="pull-right">{{movie.year}}</h4>
+            <h4><a [routerLink] = "['/movie', movie.id]">{{movie.title|substring}}</a></h4>
+            <!--<p>{{movie.desc}}</p>-->
+          <p  class="desc">
+            <span  *ngFor = "let desc of movie.genres">{{desc}}{{"  "}}  </span>
+          </p>
+        </div>
+        <div>
+            <app-stars [rating]="movie.rating.stars/10"></app-stars>
+        </div>
+    </div>
+</div>
+<div ng-show="!loading">
+  <p>总共：dd条记录，第dd/dd页</p>
+  <nav>
+    <ul class="pager">
+      <li ><a (click)="go(currentPage - 1)">« 上一页</a></li><li>翻页功能还未实现</li>
+      <li ><a (click)="go(currentPage + 1)">下一页 »</a></li>
+    </ul>
+  </nav>
+</div>
