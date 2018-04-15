@@ -36,13 +36,10 @@
         "../node_modules/bootstrap/dist/css/bootstrap.css"
 
       ],
-
+  //用cnpm淘宝镜像一定要注意引用问题.我踩了好久的坑.才发现之前的是引入得是快捷方式..
       "scripts": [
-
-        "../node_modules/jquery/dist/jquery.js",
-
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
-
+        "./../node_modules/_jquery@3.3.1@jquery/dist/jquery.js",
+        "./../node_modules/_bootstrap@3.3.7@bootstrap/dist/js/bootstrap.js"
       ],
 
 ```
@@ -57,7 +54,14 @@ typings --version
 npm i @types/jquery --save-dev
 npm i @types/bootstrap --save-dev
 ```
-
+> 在配proxy.conf.json文件是要注意配changeOrigin，不然转发不成功还是会跨域或是404
+{
+    "/v2":{
+        "target":"https://api.douban.com",
+        "secure": false,
+        "changeOrigin":true
+    }
+}
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
